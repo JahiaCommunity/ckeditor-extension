@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    ==========================================================================================
+    =                   JAHIA'S DUAL LICENSING - IMPORTANT INFORMATION                       =
+    ==========================================================================================
+
+                                    http://www.jahia.com
+
+        Copyright (C) 2002-2020 Jahia Solutions Group SA. All rights reserved.
+
+        THIS FILE IS AVAILABLE UNDER TWO DIFFERENT LICENSES:
+        1/GPL OR 2/JSEL
+
+        1/ GPL
+        ==================================================================================
+
+        IF YOU DECIDE TO CHOOSE THE GPL LICENSE, YOU MUST COMPLY WITH THE FOLLOWING TERMS:
+
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program. If not, see <http://www.gnu.org/licenses />.
+
+
+        2/ JSEL - Commercial and Supported Versions of the program
+        ===================================================================================
+
+        IF YOU DECIDE TO CHOOSE THE JSEL LICENSE, YOU MUST COMPLY WITH THE FOLLOWING TERMS:
+
+        Alternatively, commercial and supported versions of the program - also known as
+        Enterprise Distributions - must be used in accordance with the terms and conditions
+        contained in a separate written agreement between you and Jahia Solutions Group SA.
+
+        If you are unsure which license is appropriate for your use,
+        please contact the sales department at sales@jahia.com.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>jahia-modules</artifactId>
+        <groupId>org.jahia.modules</groupId>
+        <version>7.3.1.1</version>
+    </parent>
+    <groupId>org.jahiacommunity.modules</groupId>
+    <artifactId>ckeditor-extension</artifactId>
+    <name>Jahia CKEditor - Extension</name>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+    <inceptionYear>2020</inceptionYear>
+    <description>CKEditor extension for WCAG.</description>
+    <scm>
+        <connection>scm:git:git@github.com:JahiaCommunity/ckeditor-extension.git</connection>
+        <url>scm:git:git@github.com:JahiaCommunity/ckeditor-extension.git</url>
+        <developerConnection>scm:git:git@github.com:JahiaCommunity/ckeditor-extension.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <developers>
+        <developer>
+            <id>xde</id>
+            <name>DEBEHOGNE Xavier</name>
+            <organization>JahiaCommunity</organization>
+        </developer>
+    </developers>
+    <contributors>
+        <contributor>
+            <organization>JahiaCommunity</organization>
+        </contributor>
+    </contributors>
+    <url>https://github.com/JahiaCommunity/ckeditor-extention</url>
+    <organization>
+        <name>Jahia Community</name>
+        <url>https://www.jahiacommunity.org</url>
+    </organization>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/JahiaCommunity/ckeditor-extention/issues</url>
+    </issueManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>jahiaCommunity-releases</id>
+            <url>https://devtools.jahiacommunity.org/jahia-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>jahiaCommunity-snapshots</id>
+            <url>https://devtools.jahiacommunity.org/jahia-snapshots</url>
+        </snapshotRepository>
+        <site>
+            <id>jahia.website</id>
+            <url>file://${jahia.site.path}/ckeditor-extension</url>
+        </site>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>jahia-public</id>
+            <name>Jahia Public Repository</name>
+            <url>https://devtools.jahia.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Fragment-Host>ckeditor</Fragment-Host>
+                        <Jahia-Module-Type>system-tools</Jahia-Module-Type>
+                        <_removeheaders>${jahia.modules.bundle.removeheaders},
+                            Jahia-Static-Resources,
+                            Jahia-Depends,
+                            Bundle-Category,
+                            Jahia-Module-Type,
+                            Jahia-Source-Control-DeveloperConnection,
+                            Jahia-Source-Control-Connection,
+                            Jahia-GroupId,
+                            Jahia-Required-Version,
+                            Jahia-Source-Folders,
+                            Jahia-Source-Control-Tag,
+                            Jahia-Download-Sources-Available,
+                            Archiver-Version,
+                            Specification-Vendor,
+                            Require-Capability,
+                            Implementation-*,
+                            Specification*,
+                            Dynamic-ImportPackage,
+                            Bundle-DocURL,
+                            Provide-Capability,
+                            Tool,
+                            Created-By,
+                            Built-By,
+                            Build-Jdk,
+                            Import-Package
+                        </_removeheaders>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
